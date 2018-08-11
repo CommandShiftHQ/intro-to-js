@@ -5,7 +5,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { firestore } from './config/firebase'
-import { Switch, Route, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter, Redirect } from 'react-router-dom'
 import Page from './Page'
 import PageCrud from './PageCrud'
 
@@ -43,6 +43,10 @@ class App extends Component {
     const { classes } = this.props;
     const { pages } = this.state
 
+    if (!pages.length) {
+      return null
+    }
+
     return (
       <div className={classes.root}>
         <CssBaseline />
@@ -55,6 +59,7 @@ class App extends Component {
         </AppBar>
 
         <Switch>
+          <Route exact path="/" render={() => <Redirect to={`/pages/${pages[0].id}`} />} />
           <Route exact path="/pages/:pageId" render={() => <Page pages={pages}/>} />
           <Route exact path="/crud" component={PageCrud} />
           <Route exact path="/crud/:pageId" component={PageCrud} />
