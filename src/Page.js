@@ -8,14 +8,9 @@ import Drawer from '@material-ui/core/Drawer';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepButton from '@material-ui/core/StepButton';
-import { withRouter } from 'react-router-dom'
-import MarkdownIt from 'markdown-it'
-import jsx from 'markdown-it-jsx'
+import { withRouter } from 'react-router-dom';
 import Markdown from 'markdown-to-jsx'
 import Repl from './Repl'
-
-const md = new MarkdownIt()
-md.use(jsx)
 
 const PageWrapper = styled.div`
   margin: 0 auto;
