@@ -18,6 +18,11 @@ const PageWrapper = styled.div`
   margin: 0 auto;
   max-width: 980px;
   line-height: 1.5rem;
+
+  pre {
+    overflow: auto;
+    width: 100%;
+  }
 `
 
 const styles = theme => ({
