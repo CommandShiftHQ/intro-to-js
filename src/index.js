@@ -6,6 +6,8 @@ import registerServiceWorker from './registerServiceWorker';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { BrowserRouter } from 'react-router-dom'
 
+import '../node_modules/highlight.js/styles/tomorrow.css'
+
 const theme = createMuiTheme({
   palette: {
     primary: {

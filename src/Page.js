@@ -11,6 +11,8 @@ import StepButton from '@material-ui/core/StepButton';
 import { withRouter } from 'react-router-dom';
 import Markdown from 'markdown-to-jsx'
 import Repl from './Repl'
+import hljs from 'highlight.js'
+import Code from './Code';
 
 const PageWrapper = styled.div`
   margin: 0 auto;
@@ -103,6 +105,9 @@ class Page extends Component {
                 overrides: {
                   Repl: {
                     component: Repl
+                  },
+                  pre: {
+                    component: Code
                   }
                 }
               }}>
