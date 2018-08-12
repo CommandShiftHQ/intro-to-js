@@ -4,9 +4,6 @@ import styled from 'styled-components'
 import Paper from '@material-ui/core/Paper';
 import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import remark from 'remark'
-import reactRenderer from 'remark-react'
-import customElementCompiler from 'remark-jsx'
 import Drawer from '@material-ui/core/Drawer';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -23,13 +20,13 @@ md.use(jsx)
 const PageWrapper = styled.div`
   margin: 0 auto;
   max-width: 980px;
+  line-height: 1.5rem;
 `
 
 const styles = theme => ({
-  root: {
-    ...theme.mixins.gutters(),
-    paddingTop: theme.spacing.unit * 3,
-    paddingBottom: theme.spacing.unit * 3,
+  drawerPaper: {
+    position: 'relative',
+    width: 270,
   },
   toolbar: theme.mixins.toolbar,
   content: {
@@ -37,10 +34,12 @@ const styles = theme => ({
     backgroundColor: theme.palette.background.default,
     padding: theme.spacing.unit * 3,
     minWidth: 0,
+    overflow: 'auto'
   },
-  drawerPaper: {
-    position: 'relative',
-    width: 240,
+  paper: {
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 3,
+    paddingBottom: theme.spacing.unit * 3,
   },
 });
 
@@ -101,7 +100,7 @@ class Page extends Component {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <PageWrapper>
-            <Paper className={classes.root} elevation={1}>
+            <Paper className={classes.paper} elevation={1}>
               <Typography variant="display1" gutterBottom>
                 {page.name}
               </Typography>
